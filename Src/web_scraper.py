@@ -27,29 +27,47 @@ def get_script():
             soup = BeautifulSoup(api_request, 'lxml')
             script = soup.find('pre')
             output = script.text
+<<<<<<< HEAD
         return output
+=======
+            return output
+>>>>>>> f723c76 (modified:   Src/web_scraper.py)
     except Exception as e:
         raise Exception(str(e))
 
 # ***********************************************************************************************************
 #
 #   This function appends all the scripts and store it in the scripts.txt file
+<<<<<<< HEAD
 #
+=======
+# TODO: Fix the path to where script.txt file is created
+>>>>>>> f723c76 (modified:   Src/web_scraper.py)
 # ***********************************************************************************************************
 
 
 def store_scripts(file):
     try:
+<<<<<<< HEAD
         with open('Src/scripts.txt', 'a', encoding='utf-8') as f:
+=======
+        with open('scripts.txt', 'a', encoding='utf-8') as f:
+>>>>>>> f723c76 (modified:   Src/web_scraper.py)
             f.write(file)
     except Exception as e:
         raise Exception(str(e))
 
 
 # ***********************************************************************************************************
+<<<<<<< HEAD
 #
 #   Move this to main.py later
 #
+=======
+#
+#   Move this to main.py later
+#
+>>>>>>> f723c76 (modified:   Src/web_scraper.py)
 # ***********************************************************************************************************
 
 data = get_script()
