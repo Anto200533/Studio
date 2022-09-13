@@ -40,7 +40,7 @@ def get_script():
 
 def store_scripts(file):
     try:
-        with open('Src\scripts.txt', 'a', encoding='utf-8') as f:
+        with open('Src/scripts.txt', 'a', encoding='utf-8') as f:
             f.write(file)
     except Exception as e:
         raise Exception(str(e))
