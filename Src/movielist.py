@@ -1,14 +1,15 @@
-#***********************************************************************************************************
-# Summary: Hold the list of the similiar genre movie scripts for training 
-#          
+# ***********************************************************************************************************
+# Summary: Hold the list of the similiar genre movie scripts for training
+#
 # Requirements: Python Verison 3.7
 #
-# Author : Anto 
-#***********************************************************************************************************
+# Author : Anto
+# ***********************************************************************************************************
 
-movie_name = ['Blade','Alien','Die-Hard-2']
+action = ['Blade', 'Alien', 'Die-Hard-2']
+
+romance = ['Belle', 'Beginners', 'Birdman']
 
 
-
-#TODO: Add a fuck ton of movies for Action Genre 
-#TODO: Create another list of movies for a different genre
+# TODO: Add a fuck ton of movies for Action Genre
+# TODO: Create another list of movies for a different genre

@@ -7,10 +7,25 @@
 # ***********************************************************************************************************
 
 from bs4 import BeautifulSoup
-from movielist import movie_name
+import movielist
 import requests
 
-# TODO: Add a way selecting different genres for the script.txt dataset
+# ***********************************************************************************************************
+#
+#   This function selects lists from movielist, multiple lists can be combined into one script.txt by running this file multiple times.
+#
+# ***********************************************************************************************************
+
+
+def select_list():
+    try:
+        print("Enter the movie genre:")
+        genre = input().lower()
+        chosen_genre = getattr(movielist, genre)
+        print(chosen_genre)
+        return chosen_genre
+    except Exception as e:
+        raise Exception(str(e))
 
 # ***********************************************************************************************************
 #
@@ -19,11 +34,11 @@ import requests
 # ***********************************************************************************************************
 
 
-def get_script():
+def get_script(chosen_genre):
     try:
-        for i in range(len(movie_name)):
+        for i in range(len(chosen_genre)):
             api_request = requests.get(
-                'https://imsdb.com/scripts/{}.html'.format(movie_name[i])).text
+                'https://imsdb.com/scripts/{}.html'.format(chosen_genre[i])).text
             soup = BeautifulSoup(api_request, 'lxml')
             script = soup.find('pre')
             output = script.text
@@ -40,7 +55,7 @@ def get_script():
 
 def store_scripts(file):
     try:
-        with open('Src/scripts.txt', 'a', encoding='utf-8') as f:
+        with open('scripts.txt', 'a', encoding='utf-8') as f:
             f.write(file)
     except Exception as e:
         raise Exception(str(e))
@@ -52,5 +67,6 @@ def store_scripts(file):
 #
 # ***********************************************************************************************************
 
-data = get_script()
+genretype = select_list()
+data = get_script(genretype)
 combined_data = store_scripts(data)
