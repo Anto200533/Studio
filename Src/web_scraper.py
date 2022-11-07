@@ -25,21 +25,9 @@ def get_script():
             soup = BeautifulSoup(api_request, 'lxml')
             script = soup.find('pre')
             output = script.text
+            with open('Src/scripts.txt', 'a') as f:
+                f.write(output) 
         return output
-    except Exception as e: 
-        raise Exception(str(e))
-
-#***********************************************************************************************************
-#   
-#   This function appends all the scripts and store it in the scripts.txt file 
-#
-#***********************************************************************************************************
-
-
-def store_scripts(file):
-    try:
-        with open('Src/scripts.txt', 'a') as f:
-            f.write(file)          
     except Exception as e: 
         raise Exception(str(e))
 
@@ -51,5 +39,3 @@ def store_scripts(file):
 #***********************************************************************************************************
 
 data = get_script()
-combined_data = store_scripts(data)
-
